@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@300;400;500;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-bg-dark: #0f1113;
+  --color-panel: #1a1d21;
+  --color-accent-green: #00ff66;
+  --color-accent-dim: #004d1f;
+  --color-border-tool: #2a2f35;
+  --color-text-tool-main: #e0e0e0;
+  --color-text-tool-muted: #888;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-dark text-text-tool-main selection:bg-accent-green/30;
+  }
+}
+
+/* Hardware Grid Background */
+.hardware-grid {
+  background-image: 
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px), 
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
