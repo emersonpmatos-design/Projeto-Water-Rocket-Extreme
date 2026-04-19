@@ -24,8 +24,8 @@ const DEFAULT_PARAMS: RocketParams = {
   bottleVolumeL: 2.0,
   nozzleDiameterMm: 21.5,
   bottleDiameterMm: 100,
-  dryMassKg: 0.08,
-  dragCoeff: 0.28,
+  dryMassKg: 0.15,
+  dragCoeff: 0.3,
 };
 
 // --- COMPONENTS ---

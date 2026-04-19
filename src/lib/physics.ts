@@ -155,8 +155,8 @@ export function simulateRocket(params: RocketParams): SimulationResult {
   }
 
   // Integration Loop (RK4)
-  while (state[1] >= -0.01 && t < 20) {
-    if (t === 0 || Math.floor(t * 1000) % 10 === 0) {
+  while (state[1] >= 0 && t < 40) {
+    if (t === 0 || Math.floor(t * 1000) % 5 === 0) {
       trajectory.push({ x: state[0], y: Math.max(0, state[1]), t });
     }
 
@@ -174,6 +174,9 @@ export function simulateRocket(params: RocketParams): SimulationResult {
     // Cap the distance to avoid infinite loops if parameters are broken
     if (state[0] > 1000) break;
   }
+
+  // Final landing point to ensure touch-down on the plot
+  trajectory.push({ x: state[0], y: 0, t });
 
   // Final phase close
   if (currentPhase) phases.push({ startTime: phaseStart, endTime: t, label: currentPhase });
