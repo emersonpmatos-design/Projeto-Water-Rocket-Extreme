@@ -121,9 +121,9 @@ export default function App() {
         </div>
       </header>
 
-      <div className="flex-1 flex overflow-hidden">
+      <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
         {/* Left Controls */}
-        <aside className="w-72 bg-panel border-r border-border-tool p-5 flex flex-col gap-5 overflow-y-auto shrink-0">
+        <aside className="w-full lg:w-72 bg-panel border-b lg:border-b-0 lg:border-r border-border-tool p-5 flex flex-col gap-5 overflow-y-auto shrink-0 max-h-[40vh] lg:max-h-full">
           <div className="space-y-6">
             <div className="space-y-1">
               <h4 className="text-[9px] font-mono font-bold text-text-tool-muted uppercase tracking-[0.2em] mb-3">Parâmetros de Lançamento</h4>
@@ -253,36 +253,37 @@ export default function App() {
             </div>
           </section>
 
-          {/* Footer Stats Bar */}
-          <footer className="h-32 bg-[#111418] border-t border-border-tool p-6 flex items-center gap-6 shrink-0">
-            <Metric 
-              label="Alcance Total" 
-              value={result.maxDistance.toFixed(2)} 
-              unit="m" 
-              icon={Target} 
-            />
-            <Metric 
-              label="Altitude Apogeu" 
-              value={result.maxHeight.toFixed(2)} 
-              unit="m" 
-              icon={Maximize2} 
-              color="text-text-tool-main"
-            />
-            <Metric 
-              label="V-Terminal" 
-              value={(result.maxVelocity * 3.6).toFixed(1)} 
-              unit="km/h" 
-              icon={Zap} 
-              color="text-text-tool-main"
-            />
+          <footer className="h-auto lg:h-32 bg-[#111418] border-t border-border-tool p-4 lg:p-6 flex flex-wrap lg:flex-nowrap items-center gap-4 lg:gap-6 shrink-0">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-row w-full gap-4 lg:gap-6">
+              <Metric 
+                label="Alcance Total" 
+                value={result.maxDistance.toFixed(2)} 
+                unit="m" 
+                icon={Target} 
+              />
+              <Metric 
+                label="Altitude Apogeu" 
+                value={result.maxHeight.toFixed(2)} 
+                unit="m" 
+                icon={Maximize2} 
+                color="text-text-tool-main"
+              />
+              <Metric 
+                label="V-Terminal" 
+                value={(result.maxVelocity * 3.6).toFixed(1)} 
+                unit="km/h" 
+                icon={Zap} 
+                color="text-text-tool-main"
+              />
+            </div>
             
-            <div className="h-full w-px bg-border-tool mx-2" />
+            <div className="hidden lg:block h-full w-px bg-border-tool mx-2" />
             
-            <div className="flex-1 min-w-[200px]">
-              <div className="text-[9px] uppercase tracking-widest text-text-tool-muted font-mono font-bold mb-3">Sequenciamento de Voo</div>
-              <div className="flex gap-1.5">
+            <div className="w-full lg:flex-1 min-w-full lg:min-w-[200px]">
+              <div className="text-[9px] uppercase tracking-widest text-text-tool-muted font-mono font-bold mb-2 lg:mb-3">Sequenciamento de Voo</div>
+              <div className="flex gap-1.5 overflow-x-auto pb-2 lg:pb-0">
                 {result.phases.map((phase, idx) => (
-                  <div key={idx} className="flex-1 h-8 bg-white/[0.02] border border-border-tool rounded-sm p-1.5 flex flex-col justify-center">
+                  <div key={idx} className="flex-1 min-w-[70px] h-8 bg-white/[0.02] border border-border-tool rounded-sm p-1.5 flex flex-col justify-center">
                     <div className="flex justify-between items-center text-[8px] font-mono uppercase tracking-tighter">
                       <span className="text-accent-green/60">{phase.label.slice(0, 3)}</span>
                       <span className="text-text-tool-muted">{(phase.endTime - phase.startTime).toFixed(2)}s</span>
