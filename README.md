@@ -1,20 +1,46 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🚀 AeroPET Pro Extreme
 
-# Run and deploy your AI Studio app
+**AeroPET Pro Extreme** é um simulador profissional de foguetes de garrafa PET (hidropneumáticos) de alta fidelidade, desenvolvido para dispositivos Web. Ele utiliza modelos matemáticos avançados para prever a trajetória, apogeu e velocidade com precisão de competição.
 
-This contains everything you need to run your app locally.
+![Status da Simulação](https://img.shields.io/badge/Status-Estável-00ff66?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/React-20232a?style=for-the-badge&logo=react&logoColor=61dafb)
+![Tech Stack](https://img.shields.io/badge/TypeScript-007acc?style=for-the-badge&logo=typescript&logoColor=white)
 
-View your app in AI Studio: https://ai.studio/apps/19dad0d2-1e51-4d4a-aaca-2f72a9e22ec6
+## 🛠️ Diferenciais Técnicos
 
-## Run Locally
+Diferente de simuladores básicos, o AeroPET utiliza:
+- **Integrador RK-4**: Método Runge-Kutta de 4ª ordem operando a 500Hz para garantir curvas suaves e precisas.
+- **Modelo de 3 Fases**:
+  1. **Hidráulica**: Expulsão de água com pressão adiabática.
+  2. **Pneumática Crítica**: Expulsão de ar considerando fluxo sônico (*Choked Flow*).
+  3. **Ballística**: Voo puramente inercial com modelagem de arrasto aerodinâmico ($C_d$).
+- **Dashboard Especialista**: Interface estilo terminal técnico para análise de telemetria em tempo real.
 
-**Prerequisites:**  Node.js
+## 📊 Métricas Monitoradas
+- **Alcance Total (m)**
+- **Altitude de Apogeu (m)**
+- **Velocidade de Pico (km/h)**
+- **Sequenciamento de Fases (s)**
 
+## 🚀 Como Rodar Localmente
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm run dev
+   ```
+
+## 🧪 Parâmetros de Geometria Ajustáveis
+- Volume da Garrafa (0.5L a 3.0L)
+- Diâmetro do Bico/Nozzle (mm)
+- Coeficiente de Arrasto ($C_d$)
+
+## 📄 Licença
+Distribuído sob a licença Apache-2.0. Veja `LICENSE` para mais informações.
